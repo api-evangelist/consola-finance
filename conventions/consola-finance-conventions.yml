@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.request.finance/
+notes: >-
+  Cross-cutting request/response semantics for the Request Finance API, captured
+  from the docs (no OpenAPI is published). Only conventions the provider actually
+  documents are recorded — idempotency and pagination are not documented and are
+  intentionally omitted rather than assumed.
+base_url: https://api.request.finance/
+protocol: REST over HTTPS, JSON-encoded bodies and responses, standard HTTP status codes
+authentication:
+  ref: authentication/consola-finance-authentication.yml
+  summary: API key (Authorization header) or OAuth 2.0; mandatory X-Network header (test|live)
+required_headers:
+- Accept: application/json
+- Content-Type: application/json
+- Authorization: '[API key] or Bearer [OAuth access token]'
+- X-Network: test | live
+versioning:
+  scheme: unversioned base path; environment selected via X-Network header
+  status_page: https://status.request.finance
+rate_limiting:
+  ref: rate-limits/consola-finance-rate-limits.yml
+  headers: [X-Rate-Limit-Limit, X-Rate-Limit-Remaining, X-Rate-Limit-Reset, Retry-After]
+webhooks:
+  ref: asyncapi/consola-finance-webhooks.yml
+errors:
+  style: standard HTTP response codes
+  documented_catalog: false
+idempotency:
+  documented: false
+pagination:
+  documented: false

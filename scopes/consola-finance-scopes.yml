@@ -1,0 +1,54 @@
+generated: '2026-07-18'
+method: searched
+source: https://auth.request.finance/.well-known/openid-configuration
+docs: https://docs.request.finance/going-live
+notes: >-
+  Request Finance OAuth (Auth0-backed) scopes. Standard OIDC scopes come from
+  the live discovery document (scopes_supported); user:read is documented on the
+  Going Live page as a Request Finance application scope. No OpenAPI is published
+  so scopes are not tied to specific operations.
+schemes:
+- name: OAuth2
+  source: well-known/consola-finance-openid-configuration.json
+  issuer: https://auth.request.finance/
+  audience: accounts
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.request.finance/authorize
+    tokenUrl: https://auth.request.finance/oauth/token
+  - flow: clientCredentials
+    tokenUrl: https://auth.request.finance/oauth/token
+scopes:
+- scope: openid
+  description: OIDC authentication; issue an ID token.
+  flows: [authorizationCode]
+- scope: profile
+  description: Access the user's basic profile claims.
+  flows: [authorizationCode]
+- scope: email
+  description: Access the user's email and email_verified claims.
+  flows: [authorizationCode]
+- scope: offline_access
+  description: Issue a refresh token for long-lived access (Authorization Code Flow only).
+  flows: [authorizationCode]
+- scope: user:read
+  description: >-
+    Request Finance application scope to read the user and the organizations they
+    belong to (see the Organizations docs).
+  flows: [authorizationCode]
+  source: https://docs.request.finance/going-live
+oidc_scopes_supported:
+- openid
+- profile
+- offline_access
+- name
+- given_name
+- family_name
+- nickname
+- email
+- email_verified
+- picture
+- created_at
+- identities
+- phone
+- address

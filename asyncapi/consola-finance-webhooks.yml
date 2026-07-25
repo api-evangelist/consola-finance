@@ -1,0 +1,47 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.request.finance/webhooks
+spec_type: Webhooks
+notes: >-
+  Request Finance documents webhooks but publishes no AsyncAPI document, so this
+  captures the webhook catalog verbatim from the docs. Webhooks require an OAuth
+  app and account whitelisting; delivery is a JSON POST to a configured URL,
+  secured with a shared secret.
+delivery:
+  transport: https
+  method: POST
+  content_type: application/json
+  security: shared secret configured on the OAuth app (Settings > Developer > Apps)
+  prerequisites:
+  - Create an OAuth app (see Going Live)
+  - Contact Request Finance support to be whitelisted for webhooks
+payload:
+  fields:
+    variant: object type — rnf_invoice | rnf_salary
+    event: event name (see events below)
+    timestamp: Unix timestamp in milliseconds
+    invoice: the invoice object (same shape as GET /invoices/:id)
+variants:
+- rnf_invoice
+- rnf_salary
+events:
+- name: create
+  description: An invoice is created.
+- name: accept
+  description: An invoice is accepted by the buyer.
+- name: cancel
+  description: An invoice is canceled by the seller.
+- name: reject
+  description: An invoice is rejected by the buyer.
+- name: declareSentPayment
+  description: >-
+    Crypto-to-fiat: funds arrived at the banking partner; or an externally-paid
+    payable was manually marked as paid by the payer.
+- name: declareReceivedPayment
+  description: >-
+    Crypto-to-fiat: payment sent to the recipient by the banking partner; or an
+    externally-paid recipient declared the payment as received.
+- name: paid
+  description: >-
+    Crypto-to-fiat: same as declareReceivedPayment; crypto-to-crypto: settled
+    on-chain and funds are in the recipient's wallet.

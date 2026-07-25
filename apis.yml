@@ -1,23 +1,114 @@
 aid: consola-finance
 name: Consola Finance
-description: Consola Finance is a company surfaced as a portfolio company of speedinvest and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Consola Finance is an enterprise-grade automated crypto accounting and finance
+  platform for digital assets, acquired by and now operating as part of Request
+  Finance. It lets finance and accounting teams monitor wallets across 25+
+  blockchains and 20+ exchanges (Binance, Coinbase, Kraken, KuCoin and others),
+  automate bookkeeping, categorize and label on-chain transactions, filter spam,
+  and generate audit-ready reports — transaction history, historical wallet
+  balances, team breakdowns, contact lists, and realized / unrealized gains and
+  losses — exported to CSV, XLSX and JSON, with integrations into existing ERP
+  and accounting systems. As part of Request Finance it shares the Request
+  Finance REST API for accounts payable / receivable, invoicing and payroll,
+  authenticated with API keys or OAuth over JSON/HTTPS.
 url: https://raw.githubusercontent.com/api-evangelist/consola-finance/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/RequestFinance
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - speedinvest
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-acquired-by: request-finance
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Crypto Accounting
+- Digital Assets
+- Web3 Finance
+- Accounts Payable
+- Accounts Receivable
+- Invoicing
+- Payroll
+- Bookkeeping
+- Blockchain
+apis:
+- name: Request Finance API
+  description: >-
+    REST API for the Request Finance platform — accounts payable / receivable,
+    invoices, payroll, organizations and clients — that Consola Finance's crypto
+    accounting product is now part of. JSON over HTTPS, standard HTTP status
+    codes, Bearer (API key) or OAuth authentication.
+  humanURL: https://docs.request.finance/
+  baseURL: https://api.request.finance
+  properties:
+  - type: Documentation
+    url: https://docs.request.finance/
+  - type: APIReference
+    url: https://docs.request.finance/getting-started
+  - type: GettingStarted
+    url: https://docs.request.finance/getting-started
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/consola-finance-domain-security.yml
+- type: DeveloperPortal
+  url: https://docs.request.finance/
+- type: Documentation
+  url: https://docs.request.finance/
+- type: APIReference
+  url: https://docs.request.finance/getting-started
+- type: GettingStarted
+  url: https://docs.request.finance/getting-started
+- type: Pricing
+  url: https://www.request.finance/pricing
+- type: SignUp
+  url: https://app.request.finance
+- type: Blog
+  url: https://www.request.finance/category/product-updates
+- type: StatusPage
+  url: https://status.request.finance
+- type: GitHubOrganization
+  url: https://github.com/RequestFinance
+- type: Postman
+  url: https://www.postman.com/request-finance/workspace/request-finance-api-public
+- type: Authentication
+  url: authentication/consola-finance-authentication.yml
+- type: RateLimits
+  url: rate-limits/consola-finance-rate-limits.yml
+- type: Webhooks
+  url: asyncapi/consola-finance-webhooks.yml
+- type: Sandbox
+  url: sandbox/consola-finance-sandbox.yml
+- type: Conventions
+  url: conventions/consola-finance-conventions.yml
+- type: LLMsTxt
+  url: llms/consola-finance-llms.txt
+- type: WellKnown
+  url: well-known/consola-finance-well-known.yml
+- type: OAuthScopes
+  url: scopes/consola-finance-scopes.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

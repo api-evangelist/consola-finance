@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: searched
+source: https://auth.request.finance/.well-known/
+notes: >-
+  api.request.finance publishes no /.well-known/ documents (all 404). The OAuth
+  authorization server auth.request.finance (Auth0-backed) serves genuine OIDC
+  discovery and RFC 8414 metadata. www.request.finance returns a Next.js SPA
+  catch-all (identical 218KB HTML) for every /.well-known/ path, so those are
+  NOT real documents and are recorded as such below rather than saved.
+hosts:
+- host: https://auth.request.finance
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: consola-finance-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: consola-finance-oauth-authorization-server.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://api.request.finance
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://www.request.finance
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: not-a-real-document; SPA catch-all HTML shell, not saved
+  - path: /.well-known/api-catalog
+    status: 200
+    note: not-a-real-document; SPA catch-all HTML shell, not saved

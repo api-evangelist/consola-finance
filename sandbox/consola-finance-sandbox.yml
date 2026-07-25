@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.request.finance/testing
+notes: >-
+  Request Finance test environment. Test-mode requests use a Test API key and are
+  persisted on the Ethereum Sepolia testnet; the X-Network header (test|live)
+  selects the environment for OAuth calls. All values below are published in the
+  provider docs verbatim — none are invented.
+test_vs_live:
+  mechanism: separate Test and Live API keys; X-Network header (test|live) for OAuth
+  test_api_keys_at: https://app.request.finance/account/api-keys
+sandbox:
+  app_url: https://baguette-app.request.finance/
+  staging_auth: https://baguette-app.request.finance/
+  credentials: use your existing Request Finance credentials
+  network: Ethereum Sepolia testnet
+payments:
+  native_test_token: ETH on Sepolia (fund via a public Sepolia faucet)
+  test_erc20:
+    symbol: FAU
+    pegged_to: DAI
+    contract: '0x370de27fdb7d1ff1e1baa7d11c5820a324cf623c'
+    mint: call mint() on the FAU contract on Sepolia Etherscan
+    decimals: 18
+  note: >-
+    The account that issues an invoice cannot be the account that pays it; create
+    a second Request Finance account for the buyer role when testing payments.
+tooling:
+  postman_collection: https://www.postman.com/request-finance/workspace/request-finance-api-public

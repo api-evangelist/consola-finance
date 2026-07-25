@@ -1,0 +1,26 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.request.finance/rate-limits
+notes: >-
+  Global hourly rate limits for the Request Finance API, plus the response
+  headers used to signal usage. Some endpoints apply stricter limits.
+rate_limits:
+- tier: unauthenticated
+  limit_count: 500
+  window: hour
+- tier: authenticated
+  limit_count: 5000
+  window: hour
+- tier: oauth
+  limit_count: 15000
+  window: hour
+signaling:
+  headers:
+  - name: X-Rate-Limit-Limit
+    description: The rate limit ceiling for the endpoint.
+  - name: X-Rate-Limit-Remaining
+    description: Requests remaining for the endpoint.
+  - name: X-Rate-Limit-Reset
+    description: Seconds until the rate limit window resets.
+  - name: Retry-After
+    description: Sent on blocked (429) requests to indicate when to retry.

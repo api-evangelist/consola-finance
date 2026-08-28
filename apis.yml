@@ -13,6 +13,17 @@ description: >-
   Finance REST API for accounts payable / receivable, invoicing and payroll,
   authenticated with API keys or OAuth over JSON/HTTPS.
 url: https://raw.githubusercontent.com/api-evangelist/consola-finance/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
